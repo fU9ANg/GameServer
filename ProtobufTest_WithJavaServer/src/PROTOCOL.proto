@@ -1,0 +1,56 @@
+package Netty4; 
+option java_package = "com.newman.netty4.protobuf"; 
+option java_outer_classname = "PROTOCOL";
+
+enum CommMessageType {
+    // Request
+    CMT_C_LOGIN = 100;
+    CMT_C_PPTLIST = 101;
+
+    // Response
+    CMT_S_LOGIN = 1000;
+    CMT_S_PPTLIST = 1001;
+}
+
+message ProtocolMessage
+{
+    required CommMessageType    type = 1;
+    optional ReqLogin           req_login = 2;
+    optional RespLogin          resp_login = 3;
+    optional ReqPPTList         req_ppt_list = 4;
+    optional RespPPTList        resp_ppt_list = 5;
+}
+
+message CommRlt {
+    required int32  code = 1;
+    required string msg = 2;
+}
+
+message ReqLogin {
+    required int32  id = 1;
+    required string token = 2;
+    optional string platform = 3;
+    optional string app_version = 4;
+}
+
+message RespLogin {
+    required CommRlt rlt = 1;
+}
+
+message PPTNode {
+    required int32 id = 1;
+    required string image = 2;
+    optional int32 order = 3;
+}
+
+message ReqPPTList {
+    required int32 vspid = 1;
+    required int32 userid = 2;
+}
+
+message RespPPTList {
+    required CommRlt rlt = 1;
+    required int32 tag = 2;
+    optional string desc = 3;
+    repeated PPTNode node= 4;
+}
