@@ -16,7 +16,21 @@ public class DoubleServerHandler extends SimpleChannelInboundHandler<Object> {
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("client enter.");
-		// ctx.channel().writeAndFlush("abcdef");
+//		ctx.channel().writeAndFlush("abcdef");
+		
+		// send login result
+//		ProtocolMessage.Builder pmLoginRltBuilder = ProtocolMessage.newBuilder();
+//		pmLoginRltBuilder.setType(CommMessageType.CMT_S_LOGIN);
+//		RespLogin.Builder respLoginBuilder = RespLogin.newBuilder();
+//
+//		CommRlt.Builder rltLoginBuilder = CommRlt.newBuilder();
+//		rltLoginBuilder.setCode(10);
+//		rltLoginBuilder.setMsg("Login Success!");
+//
+//		respLoginBuilder.setRlt(rltLoginBuilder.build());
+//		pmLoginRltBuilder.setRespLogin(respLoginBuilder.build());
+//
+//		ctx.channel().writeAndFlush(pmLoginRltBuilder.build());
 	}
 
 	@Override

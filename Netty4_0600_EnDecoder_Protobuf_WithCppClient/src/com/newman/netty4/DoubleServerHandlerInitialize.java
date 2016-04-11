@@ -27,8 +27,8 @@ public class DoubleServerHandlerInitialize extends ChannelInitializer<Channel> {
 		// pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
 		// pipeline.addLast(new ProtobufEncoder());
 
-		// pipeline.addLast(new StringDecoder());
-		// pipeline.addLast(new StringEncoder());
+//		 pipeline.addLast(new StringDecoder());
+//		 pipeline.addLast(new StringEncoder());
 		pipeline.addLast(new DoubleServerHandler());
 
 	}
