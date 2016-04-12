@@ -1,7 +1,6 @@
 package com.newman.tools;
 
 public class Field {
-
 	private String modifier;
 	private String type;
 	private String name;
@@ -41,7 +40,6 @@ public class Field {
 
 	@Override
 	public String toString() {
-		return "Field [modifier=" + modifier + ", type=" + type + ", name=" + name + ", value=" + value + "]";
+		return "\t\tField [modifier=" + modifier + ", type=" + type + ", name=" + name + ", value=" + value + "]\n";
 	}
-
 }

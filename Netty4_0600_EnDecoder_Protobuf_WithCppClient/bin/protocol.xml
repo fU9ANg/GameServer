@@ -1,13 +1,11 @@
 <!-- 定义协议的类型为Google的Protobuf -->
-<protocol type="protobuf">
-
-	<name>PRO</name>
-	<!-- 定义C++语言的Namespace名称 -->
-	<packagename>Netty4</packagename>
+<protocol packagename="Netty4">
+	<type value="protobuf"></type>
+	<name>yyyyyyyyyy</name>
+	<!-- 定义C++语言的Namespace名称 <packagename>Netty4</packagename> -->
 	<!-- 定义生成的java文件所在的java包名称 -->
 	<java_package>com.newman.netty4.protobuf</java_package>
 	<classname>PROTOCOL</classname>
-
 	<message name="ProtocolMessage">
 		<field modifier="required" type="CommMessageType" name="type"></field>
 		<field modifier="optional" type="ReqLogin" name="req_login"></field>
@@ -15,46 +13,38 @@
 		<field modifier="optional" type="ReqPPTList" name="req_ppt_list"></field>
 		<field modifier="optional" type="RespPPTList" name="resp_ppt_list"></field>
 	</message>
-
 	<enum name="CommMessageType">
 		<type name="CMT_C_LOGIN" value="100"></type>
 		<type name="CMT_C_PPTLIST" value="101"></type>
 		<type name="CMT_S_LOGIN" value="1000"></type>
 		<type name="CMT_S_PPTLIST" value="1001"></type>
 	</enum>
-
 	<message name="ReqLogin">
 		<field modifier="required" type="int32" name="id"></field>
-		<field modifier="required" type="string" name="token"></field>
+		<field modifier="required" type="string" name="token" value="3"></field>
 		<field modifier="optional" type="string" name="platform"></field>
-		<field modifier="optional" type="string" name="app_version"></field>
+		<field modifier="optional" type="string" name="app_version" value="2"></field>
 	</message>
-
 	<message name="RespLogin">
 		<field modifier="required" type="CommRlt" name="rlt"></field>
 	</message>
-
 	<message name="CommRlt">
 		<field modifier="required" type="int32" name="code"></field>
 		<field modifier="required" type="string" name="msg"></field>
 	</message>
-
 	<message name="ReqPPTList">
 		<field modifier="required" type="int32" name="vspid"></field>
 		<field modifier="required" type="int32" name="userid"></field>
 	</message>
-
 	<message name="RespPPTList">
 		<field modifier="required" type="CommRlt" name="rlt"></field>
 		<field modifier="required" type="int32" name="tag"></field>
 		<field modifier="optional" type="string" name="desc"></field>
 		<field modifier="repeated" type="PPTNode" name="node"></field>
 	</message>
-
 	<message name="PPTNode">
 		<field modifier="required" type="int32" name="id"></field>
 		<field modifier="required" type="string" name="image"></field>
-		<field modifier="optional" type="int32" name="order"></field>
+		<field modifier="optional" type="int32" name="order" value="2"></field>
 	</message>
-
 </protocol>
