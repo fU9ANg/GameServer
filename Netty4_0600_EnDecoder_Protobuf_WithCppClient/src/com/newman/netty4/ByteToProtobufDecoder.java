@@ -11,52 +11,55 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 
 public class ByteToProtobufDecoder extends ByteToMessageDecoder {
 
-//	@Override
-//	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-//		// TODO Auto-generated method stub
-//		System.out.println(this.getClass().getName());
-//
-//		if (in.readableBytes() < 4) {
-//			return;
-//		}
-//		int length = in.readInt();
-//		System.out.println("length: " + length);
-//		if (in.readableBytes() < length) {
-//			return;
-//		}
-//		ByteBuf frame = Unpooled.buffer(length);
-//		in.readBytes(frame);
-//
-//		try {
-//			byte[] inByte = frame.array();
-//
-//			// 解密消息体
-//			// ThreeDES des = ctx.channel().attr(AppAttrKeys.ENCRYPT).get();
-//			// byte[] bareByte = des.decrypt(inByte);
-//
-//			// 字节转成对象
-//			ProtocolMessage msg = ProtocolMessage.parseFrom(inByte);
-//			// System.out.println("[APP-SERVER][RECV][remoteAddress:" +
-//			// ctx.channel().remoteAddress() + "][total length:" + length
-//			// + "][bare length:" + msg.getSerializedSize() + "]:\r\n" +
-//			// msg.toString());
-//
-//			if (msg != null) {
-//				// 获取业务消息头
-//				out.add(msg);
-//			}
-//		} catch (Exception e) {
-//			System.out.println(ctx.channel().remoteAddress() + ",decode failed." + e);
-//		}
-//	}
+	// @Override
+	// protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object>
+	// out) throws Exception {
+	// // TODO Auto-generated method stub
+	// System.out.println(this.getClass().getName());
+	//
+	// if (in.readableBytes() < 4) {
+	// return;
+	// }
+	// int length = in.readInt();
+	// System.out.println("length: " + length);
+	// if (in.readableBytes() < length) {
+	// return;
+	// }
+	// ByteBuf frame = Unpooled.buffer(length);
+	// in.readBytes(frame);
+	//
+	// try {
+	// byte[] inByte = frame.array();
+	//
+	// // 解密消息体
+	// // ThreeDES des = ctx.channel().attr(AppAttrKeys.ENCRYPT).get();
+	// // byte[] bareByte = des.decrypt(inByte);
+	//
+	// // 字节转成对象
+	// ProtocolMessage msg = ProtocolMessage.parseFrom(inByte);
+	// // System.out.println("[APP-SERVER][RECV][remoteAddress:" +
+	// // ctx.channel().remoteAddress() + "][total length:" + length
+	// // + "][bare length:" + msg.getSerializedSize() + "]:\r\n" +
+	// // msg.toString());
+	//
+	// if (msg != null) {
+	// // 获取业务消息头
+	// out.add(msg);
+	// }
+	// } catch (Exception e) {
+	// System.out.println(ctx.channel().remoteAddress() + ",decode failed." +
+	// e);
+	// }
+	// }
 
 	@Override
-	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+	protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out)
+			throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println(this.getClass().getName());
 
 		in.markReaderIndex();
-		
+
 		if (in.readableBytes() < 4) {
 			return;
 		}

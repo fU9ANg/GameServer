@@ -18,16 +18,16 @@ public class DoubleClientHandlerInitialize extends ChannelInitializer<Channel> {
 	protected void initChannel(Channel ch) throws Exception {
 		ChannelPipeline pipeline = ch.pipeline();
 
-//		 pipeline.addLast(new ProtobufVarint32FrameDecoder());
+		// pipeline.addLast(new ProtobufVarint32FrameDecoder());
 		// pipeline.addLast(new
 		// ProtobufDecoder(ProtocolMessage.getDefaultInstance()));
-//		pipeline.addLast(new ByteToProtobufDecoder());
-//		pipeline.addLast(new ProtobufToByteEncoder());
-//		 pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
+		// pipeline.addLast(new ByteToProtobufDecoder());
+		// pipeline.addLast(new ProtobufToByteEncoder());
+		// pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
 		// pipeline.addLast(new ProtobufEncoder());
 
-		 pipeline.addLast(new StringDecoder());
-		 pipeline.addLast(new StringEncoder());
+		pipeline.addLast(new StringDecoder());
+		pipeline.addLast(new StringEncoder());
 
 		pipeline.addLast(new DoubleClientHandler());
 	}

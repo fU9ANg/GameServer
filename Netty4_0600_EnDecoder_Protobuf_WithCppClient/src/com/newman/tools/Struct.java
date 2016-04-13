@@ -6,6 +6,9 @@ import java.util.List;
 public class Struct {
 	private String type;
 	private String name;
+	private String mainMessage;
+	private String comment;
+
 	private List<Field> fields = new ArrayList<Field>();
 
 	private int nameIsExist(String name) {
@@ -28,6 +31,33 @@ public class Struct {
 			}
 		}
 		return num;
+	}
+
+	public String getFieldByName(String name) {
+		List<Field> fl = this.getFields();
+		for (Object o : fl) {
+			Field f = (Field) o;
+			if (f.getName().equals(name)) {
+				return name;
+			}
+		}
+		return null;
+	}
+
+	public String getMainMessage() {
+		return mainMessage;
+	}
+
+	public void setMainMessage(String mainMessage) {
+		this.mainMessage = mainMessage;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	public String getType() {
@@ -68,8 +98,8 @@ public class Struct {
 		for (int j = 0; j < child1size; j++) {
 			num = this.nameIsExist(this.fields.get(j).getName());
 			if (num > 1) {
-				System.out.println(
-						"Error: [" + this.getName() + ", " + this.fields.get(j).getName() + "]: 名称重复定义，请检查xml文件!!!");
+				System.out.println("Error: [" + this.getName() + ", " + this.fields.get(j).getName()
+						+ "]: 名称重复定义，请检查xml文件!!!");
 				return false;
 			}
 		}
@@ -82,8 +112,8 @@ public class Struct {
 		for (int j = 0; j < child1size; j++) {
 			num = this.valueIsExist(this.fields.get(j).getValue());
 			if (num > 1) {
-				System.out.println(
-						"Error: [" + this.getName() + ", " + this.fields.get(j).getName() + "]: 值重复定义，请检查xml文件!!!");
+				System.out.println("Error: [" + this.getName() + ", " + this.fields.get(j).getName()
+						+ "]: 值重复定义，请检查xml文件!!!");
 				return false;
 			}
 		}
@@ -92,6 +122,7 @@ public class Struct {
 
 	@Override
 	public String toString() {
-		return "\tStruct [type=" + type + ", name=" + name + ", fields=\n" + fields + "]\n";
+		return "\t[type=" + type + ", name=" + name + ", mainMessage=" + mainMessage + ", comment="
+				+ comment + ", fields=" + fields + "]\n";
 	}
 }

@@ -32,9 +32,12 @@ public class DoubleClientHandler extends SimpleChannelInboundHandler<Object> {
 				System.out.println("desc: " + message.getRespPptList().getDesc());
 				System.out.println("node: ");
 				for (int i = 0; i < message.getRespPptList().getNodeCount(); i++) {
-					System.out.println("\tnode" + i + " - id: " + message.getRespPptList().getNode(i).getId());
-					System.out.println("\tnode" + i + " - image: " + message.getRespPptList().getNode(i).getImage());
-					System.out.println("\tnode" + i + " - order: " + message.getRespPptList().getNode(i).getOrder());
+					System.out.println(
+							"\tnode" + i + " - id: " + message.getRespPptList().getNode(i).getId());
+					System.out.println("\tnode" + i + " - image: "
+							+ message.getRespPptList().getNode(i).getImage());
+					System.out.println("\tnode" + i + " - order: "
+							+ message.getRespPptList().getNode(i).getOrder());
 				}
 				break;
 

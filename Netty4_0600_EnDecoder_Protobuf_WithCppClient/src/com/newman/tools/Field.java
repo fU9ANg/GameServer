@@ -5,6 +5,24 @@ public class Field {
 	private String type;
 	private String name;
 	private String value;
+	private String refEnumValue;
+	private String comment;
+
+	public String getRefEnumValue() {
+		return refEnumValue;
+	}
+
+	public void setRefEnumValue(String refEnumValue) {
+		this.refEnumValue = refEnumValue;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 
 	public String getModifier() {
 		return modifier;
@@ -40,6 +58,8 @@ public class Field {
 
 	@Override
 	public String toString() {
-		return "\t\tField [modifier=" + modifier + ", type=" + type + ", name=" + name + ", value=" + value + "]\n";
+		return "\t\t[modifier=" + modifier + ", type=" + type + ", name=" + name + ", value="
+				+ value + ", refEnumValue=" + refEnumValue + ", comment=" + comment + "]\n";
 	}
+
 }

@@ -10,7 +10,8 @@ import io.netty.handler.codec.MessageToByteEncoder;
 public class ProtobufToByteEncoder extends MessageToByteEncoder<PROTOCOL.ProtocolMessage> {
 
 	@Override
-	protected void encode(ChannelHandlerContext ctx, ProtocolMessage msg, ByteBuf out) throws Exception {
+	protected void encode(ChannelHandlerContext ctx, ProtocolMessage msg, ByteBuf out)
+			throws Exception {
 		out.writeInt(msg.toByteArray().length);
 		out.writeBytes(msg.toByteArray());
 	}

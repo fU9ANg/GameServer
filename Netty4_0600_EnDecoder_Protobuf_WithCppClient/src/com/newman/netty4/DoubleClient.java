@@ -39,7 +39,7 @@ public class DoubleClient {
 			loginbuilder.setPlatform("android v1.0 versi的");
 			pmbuilder.setReqLogin(loginbuilder.build());
 			channel.write(pmbuilder.build());
-			
+
 			// pptlist
 			PROTOCOL.ProtocolMessage.Builder pmbuilder2 = PROTOCOL.ProtocolMessage.newBuilder();
 			pmbuilder2.setType(PROTOCOL.CommMessageType.CMT_C_PPTLIST);

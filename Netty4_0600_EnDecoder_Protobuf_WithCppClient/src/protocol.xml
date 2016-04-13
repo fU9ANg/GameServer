@@ -1,17 +1,26 @@
 <!-- 定义协议的类型为Google的Protobuf -->
-<protocol packagename="Netty4">
+<protocol packagename="Netty4" comment="THIS IS A COMMENT">
 	<type value="protobuf"></type>
-	<name>yyyyyyyyyy</name>
+	<name>xxxxxxYYYYYYYYYYYYYYYzzzzzzzzzzzzzzz</name>
 	<!-- 定义C++语言的Namespace名称 <packagename>Netty4</packagename> -->
 	<!-- 定义生成的java文件所在的java包名称 -->
 	<java_package>com.newman.netty4.protobuf</java_package>
+	<!-- 定义生成的java文件名称，也是类的名称 -->
 	<classname>PROTOCOL</classname>
-	<message name="ProtocolMessage">
-		<field modifier="required" type="CommMessageType" name="type"></field>
-		<field modifier="optional" type="ReqLogin" name="req_login"></field>
-		<field modifier="optional" type="RespLogin" name="resp_login"></field>
-		<field modifier="optional" type="ReqPPTList" name="req_ppt_list"></field>
-		<field modifier="optional" type="RespPPTList" name="resp_ppt_list"></field>
+	<message name="ProtocolMessage" mainmessage="true" comment="这是ProtocolMessage注释">
+		<field modifier="required" type="CommMessageType" name="type" comment="这是CommMessageType注释"></field>
+		<field modifier="optional" type="ReqLogin" name="reqlogin" ref_enumvalue="CMT_C_LOGIN"></field>
+		<field modifier="optional" type="RespLogin" name="resplogin" ref_enumvalue="CMT_S_LOGIN"></field>
+		<field modifier="optional" type="ReqPPTList" name="reqpptlist" ref_enumvalue="CMT_C_PPTLIST"></field>
+		<field modifier="optional" type="RespPPTList" name="resppptlist" ref_enumvalue="CMT_S_PPTLIST" value="1"></field>
+	</message>
+	<message name="ReqAddCount">
+		<field modifier="required" type="string" name="vspcode"></field>
+		<field modifier="required" type="string" name="mac1"></field>
+		<field modifier="required" type="string" name="mac2"></field>
+	</message>
+	<message name="RespAddCount">
+		<field modifier="required" type="CommRlt" name="rlt"></field>
 	</message>
 	<enum name="CommMessageType">
 		<type name="CMT_C_LOGIN" value="100"></type>
@@ -23,7 +32,8 @@
 		<field modifier="required" type="int32" name="id"></field>
 		<field modifier="required" type="string" name="token" value="3"></field>
 		<field modifier="optional" type="string" name="platform"></field>
-		<field modifier="optional" type="string" name="app_version" value="2"></field>
+		<field modifier="optional" type="string" name="app_version"
+			value="2"></field>
 	</message>
 	<message name="RespLogin">
 		<field modifier="required" type="CommRlt" name="rlt"></field>
@@ -38,8 +48,8 @@
 	</message>
 	<message name="RespPPTList">
 		<field modifier="required" type="CommRlt" name="rlt"></field>
-		<field modifier="required" type="int32" name="tag"></field>
-		<field modifier="optional" type="string" name="desc"></field>
+		<field modifier="required" type="int32" name="tag" value="4"></field>
+		<field modifier="optional" type="string" name="desc" value="1"></field>
 		<field modifier="repeated" type="PPTNode" name="node"></field>
 	</message>
 	<message name="PPTNode">
